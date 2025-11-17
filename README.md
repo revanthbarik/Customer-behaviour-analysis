@@ -1,3 +1,6 @@
+link to dataset:
+https://www.opendatabay.com/data/synthetic/a25d7b0f-dc8c-4c01-b0af-c90597f4a20f
+
 link to dashboards:
 
 https://public.tableau.com/app/profile/revanth.barik/viz/custbehavdash/Dashboard1?publish=yes
