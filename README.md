@@ -1,3 +1,7 @@
+link to dashboards
+https://public.tableau.com/app/profile/revanth.barik/viz/custbehavdash/Dashboard1?publish=yes
+https://public.tableau.com/app/profile/revanth.barik/viz/custbehavdash/Dashboard2?publish=yes
+
 Customer Behavior & Churn Analysis (Tableau)
 
 This repository contains my code, data, and Tableau workbook for a customer behavior analysis project. I built two main dashboards:
