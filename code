@@ -1,13 +1,16 @@
+#cell 1
 from google.colab import files
-uploaded = files.upload() #cell 1
- 
+uploaded = files.upload() 
+
+#cell 2
 import pandas as pd
 data = pd.read_csv('RTD.csv', nrows=10000)
-data.head() cell 2
+data.head() 
 
 print("Columns:", data.columns.tolist())
 data.info()
 
+#cell 3
 from IPython.core import error
 import numpy as np
 import pandas as pd
@@ -17,6 +20,7 @@ data = pd.read_csv('RTD.csv')
 #date to datetime format
 data['Date'] = pd.to_datetime(data['Date'])
 
+#cell 4
 #drop missing values
 data.dropna(subset=['Customer_Name','Total_Cost'],inplace=True)
 data['Total_Cost'] = pd.to_numeric(data['Total_Cost'], errors='coerce')
@@ -25,6 +29,7 @@ print("Shape:", data.shape)
 print("Columns:", data.columns.tolist())
 print(data.head())
 
+#cell 5
 import sqlite3
 
 conn = sqlite3.connect(":memory:")
@@ -43,6 +48,7 @@ rfm['LastPurchase'] = pd.to_datetime(rfm['LastPurchase'])
 rfm.head()
 
 
+#cell 6
 # Recency score
 rfm['R_Score'] = pd.cut(rfm['Recency'], bins=4, labels=[4,3,2,1])
 
@@ -61,6 +67,7 @@ rfm['Segment'] = (
 
 rfm.head()
 
+#cell 7
 # Average Order Value
 rfm['Avg_Order_Value'] = rfm['Monetary'] / rfm['Frequency']
 
@@ -69,17 +76,15 @@ rfm['CLV'] = rfm['Avg_Order_Value'] * rfm['Frequency']
 
 rfm[['Customer_Name', 'Frequency', 'Monetary', 'Avg_Order_Value', 'CLV', 'Churn', 'Segment']].head()
 
+#cell 8
 rfm['CLV'] = rfm['CLV'].round(2)
 rfm['Avg_Order_Value'] = rfm['Avg_Order_Value'].round(2)
 rfm[['Customer_Name','Avg_Order_Value','CLV']].head() #display the values toshow the decimal points
 
+#cell 9
 #import the file 
 
 rfm.to_csv('Customer_Behavior_Analysis.csv', index=False)
 
 from google.colab import files
 files.download('Customer_Behavior_Analysis.csv')
-
-
-
-  
